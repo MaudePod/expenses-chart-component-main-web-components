@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Expenses chart component</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+  </style>
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="main.js" defer></script>
+</head>
+
+<body>
+  <main>
+    <section class="balance-card">
+      <section class="balance-card-description"></section>
+      <section class="balance-amount"></section>
+    </section>
+    <spending-card-component>
+      <template id="spending-card-template" shadowrootmode="open">
+        <section class="spending-card">
+          <h1>Spending - Last 7 days</h1>
+          <section class="spending-bars">
+            <slot name="spending-bars"></slot>
+
+          </section>
+          <hr>
+          <section class="spending-bar-footer">
+            <seciton class="spending-total">
+              Total this month
+            </seciton>
+            <section class="total-amount">
+              $478.33
+
+            </section>
+            <section class="percentage-change">
+              +2.4%
+
+            </section>
+            <section class="date-period-summary">
+              from last month
+
+            </section>
+          </section>
+        </section>
+        <style>
+          section[class="spending-card"] {
+            background-color: white;
+            height: 500px;
+            width: 400px;
+            box-sizing: border-box;
+            padding: 20px;
+            border-radius: 20px;
+          }
+
+          h1 {
+            color: var(--dark-brown);
+            font-weight: 700;
+          }
+
+          section[class="spending-bars"] {
+            display: grid;
+            grid-template-columns: repeat(7,1fr);
+            height: 250px;
+            width: 100%;
+            background-color: black;
+          }
+
+          section[class="spending-bar-footer"] {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            grid-template-rows: 1fr;
+            justify-content: space-around;
+            align-content: center;
+            margin-top: 25px;
+          }
+
+          section[class="spending-total"] {
+            grid-column: 1;
+          }
+
+          section[class="total-amount"] {
+            font-size: xx-large;
+            color: var(--dark-brown);
+            font-weight: 700;
+            grid-column: 1;
+            grid-row: 2 /4;
+          }
+
+          section[class="percentage-change"] {
+            grid-column: 2;
+            grid-row: 2;
+            font-weight: 700;
+            color: var(--dark-brown);
+          }
+
+          section[class="date-period-summary"] {
+            grid-column: 2;
+            grid-row: 3;
+          }
+        </style>
+      </template>
+    </spending-card-component>
+  </main>
+
+
+
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="https://github.com/MaudePod">Maude Pod</a>.
+  </div>
+</body>
+
+</html> 
