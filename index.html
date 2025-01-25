@@ -4,11 +4,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Frontend Mentor | Expenses chart component">
+
   <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
 
-  <title>Frontend Mentor | Expenses chart component</title>
+  <title>Frontend Mentor | </title>
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
@@ -27,10 +29,59 @@
 
 <body>
   <main>
-    <section class="balance-card">
-      <section class="balance-card-description"></section>
-      <section class="balance-amount"></section>
-    </section>
+    <balance-card>
+      <template id="balance-card-template" shadowrootmode="open">
+        <section class="balance-card">
+          <section class="balance-card-description">My Balance</section>
+          <section class="balance-amount">$921.48</section>
+          <img src="./images/logo.svg" alt="Logo">
+        </section>
+        <style>
+          section[class="balance-card"] {
+            color: var(--cream);
+            background-color: var(--soft-red);
+            height: 150px;
+            width: 500px;
+            font-size: x-large;
+            display: grid;
+            box-sizing: border-box;
+            padding: 50px;
+            border-radius: 30px;
+            grid-template-columns: 1fr auto;
+            grid-template-rows: 1fr 1fr;
+            align-items: center;
+            align-content: center;
+          }
+
+          section[class="balance-card-description"] {
+            grid-column: 1;
+          }
+
+          section[class="balance-amount"] {
+            grid-column: 1;
+            grid-row: 2;
+            font-weight: 700;
+            font-size: xx-large;
+          }
+
+          section[class="balance-card"] img {
+            grid-row: 1 / -1;
+            grid-column: 2;
+          }
+
+          @container(inline-size < 1100px) {
+            section[class="balance-card"] {
+              width: 100%;
+              margin: 50px 0px;
+            }
+
+            :host {
+              width: 90%;
+            }
+          }
+        </style>
+      </template>
+    </balance-card>
     <spending-card-component>
       <template id="spending-card-template" shadowrootmode="open">
         <section class="spending-card">
@@ -60,12 +111,14 @@
         </section>
         <style>
           section[class="spending-card"] {
-            background-color: white;
-            height: 500px;
-            width: 400px;
-            box-sizing: border-box;
+            display: grid;
+            height: 550px;
+            width: 500px;
             padding: 20px;
+            box-sizing: border-box;
+            background-color: white;
             border-radius: 20px;
+            margin-bottom: 50px;
           }
 
           h1 {
@@ -75,10 +128,17 @@
 
           section[class="spending-bars"] {
             display: grid;
-            grid-template-columns: repeat(7,1fr);
+            grid-template-columns: repeat(7, 1fr);
             height: 250px;
             width: 100%;
-            background-color: black;
+            container: bars / inline-size;
+          }
+
+          hr {
+            width: 100%;
+            height: 1px;
+            border: 0;
+            border-bottom: 1px solid var(--medium-brown);
           }
 
           section[class="spending-bar-footer"] {
@@ -113,6 +173,16 @@
             grid-column: 2;
             grid-row: 3;
           }
+
+          @container(inline-size < 1100px) {
+            section[class="spending-card"] {
+              width: 100%;
+            }
+
+            :host {
+              width: 90%;
+            }
+          }
         </style>
       </template>
     </spending-card-component>
@@ -126,4 +196,4 @@
   </div>
 </body>
 
-</html> 
+</html>
