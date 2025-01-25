@@ -7,7 +7,10 @@
     --cream: hsl(27, 66%, 92%);
     --very-pale-orange: hsl(33, 100%, 90%);
 }
-
+@font-face {
+    font-family: 'DM_Sans';
+    src: url(./fonts/DM_Sans/DMSans-VariableFont_opsz\,wght.ttf);
+}
 body {
     display: grid;
     min-height: 100svh;
@@ -15,6 +18,7 @@ body {
     background-color: var(--cream);
     container: body / inline-size;
     margin: 0;
+    font-family: 'DM_Sans';
 }
 
 main {
