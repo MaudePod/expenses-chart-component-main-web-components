@@ -27,6 +27,9 @@ main {
     width: 100cqw;
     container: main / inline-size;
     place-items: center;
+    align-content: center;
+    grid-template-rows: min-content min-content;
+    gap: 15px;
 }
 
 @container (inline-size > 1440px){
